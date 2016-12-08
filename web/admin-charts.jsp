@@ -73,12 +73,12 @@
             </div>
 
             <ul class="nav">
-                <li>
+                <!--<li>
                     <a href="admin-dashboard.jsp">
                         <i class="fa fa-dashboard"></i>
                         <p>Dashboard</p>
                     </a>
-                </li>
+                </li>-->
                 <li>
                     <a href="admin-vendor.jsp">
                         <i class="fa fa-user"></i>

@@ -24,12 +24,12 @@
                 </a>
             </div>
             <ul class="nav">
-                <li>
+                <!--<li>
                     <a href="user-dashboard.jsp">
                         <i class="fa fa-dashboard"></i>
                         <p>Dashboard</p>
                     </a>
-                </li>
+                </li>-->
                 <li>
                     <a href="user-sensors.jsp">
                         <i class="fa fa-wifi"></i>
@@ -40,6 +40,12 @@
                     <a href="user-sensor-groups.jsp">
                         <i class="fa fa-wifi"></i>
                         <p>My Sensor Groups</p>
+                    </a>
+                </li>
+                <li>
+                    <a href="user-billing.jsp">
+                        <i class="fa fa-wifi" ></i>
+                        <p>Billing</p>
                     </a>
                 </li>
             </ul>
@@ -188,7 +194,7 @@
                             <div class="col-md-7">
                                 <div class="form-group">
                                     <label>Sensor Group Description</label>
-                                    <input id="sensor=grp-desc" type="text" class="form-control"
+                                    <input id="sensor-grp-desc" type="text" class="form-control"
                                            placeholder="Sensor Group Description"
                                            name="sensorGrpDesc">
                                 </div>
@@ -223,7 +229,7 @@
                         <div class="col-md-7">
                         <div class="form-group">
                             <input onclick="add_sensor_group()" type="button" class="btn btn-info btn-fill" value="Submit">
-                            <input type="button" class="btn btn-info btn-fill btn-danger" value="Cancel"/>
+                            <input onclick="sensor_grp_cancel()" type="button" class="btn btn-info btn-fill btn-danger" value="Cancel"/>
                         </div>
                         </div>
                     </div>

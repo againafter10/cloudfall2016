@@ -28,12 +28,12 @@
             </div>
 
             <ul class="nav">
-                <li class="active">
+                <!--<li class="active">
                     <a href="vendor-dashboard.jsp">
                         <i class="fa fa-dashboard"></i>
                         <p>Dashboard</p>
                     </a>
-                </li>
+                </li>-->
                 <li>
                     <a href="vendor-sensors.jsp">
                         <i class="fa fa-wifi"></i>
@@ -41,7 +41,7 @@
                     </a>
                 </li>
                 <li>
-                    <a href="vendor-charts.jsp">
+                    <a href="vendor-charts.html">
                         <i class="fa fa-area-chart"></i>
                         <p>Sensor Data</p>
                     </a>

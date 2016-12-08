@@ -6,7 +6,7 @@
 function user() {
 
     jQuery.ajax({
-        url: "http://localhost:8181/users",
+        url: "http://35.161.231.221:8080/sensor_service/users",
         type: "GET",
         contentType: 'application/json',
         dataType:"json",
@@ -22,7 +22,7 @@ function user() {
                 var row=document.getElementById("user-table").getElementsByTagName("tr");
                 var user_email=row[this.rowIndex].getElementsByTagName('td')[2].innerHTML;
                 //var rowIndex=this.rowIndex;
-                var url='http://localhost:8182/admin-user-sensor.jsp?user='+encodeURIComponent(user_email);
+                var url='http://localhost:8184/admin-user-sensor.jsp?user='+encodeURIComponent(user_email);
                 document.location.href=url;
 
             });
@@ -43,7 +43,7 @@ function onLoadVirtualSensors(){
 
 
     jQuery.ajax({
-        url: "http://localhost:8181/virtualsensor?user_email="+res,
+        url: "http://35.161.231.221:8080/sensor_service/virtualsensor?user_email="+res,
         type: "GET",
         contentType: 'application/json',
         dataType:"json",

@@ -32,12 +32,12 @@
                 </a>
             </div>
             <ul class="nav">
-                <li>
+                <!--<li>
                     <a href="vendor-dashboard.jsp">
                         <i class="fa fa-dashboard"></i>
                         <p>Dashboard</p>
                     </a>
-                </li>
+                </li>-->
                 <li class="active">
                     <a href="vendor-sensors.jsp">
                         <i class="fa fa-wifi"></i>
@@ -45,7 +45,7 @@
                     </a>
                 </li>
                 <li>
-                    <a href="vendor-charts.jsp">
+                    <a href="vendor-charts.html">
                         <i class="fa fa-area-chart"></i>
                         <p>Sensor Data</p>
                     </a>
@@ -177,17 +177,20 @@
                                     <label>Location</label>
                                     <!--input id="sensor-location" type="text" class="form-control" placeholder="Location" name="sensorLocation"-->
                                     <select id="add-sensor-location" class="form-control" name="sensorLocation">
-                                        <option value="SFO">SFO</option>
-                                        <option value="Foster city">Foster city</option>
+                                        <option value="SFO">SF</option>
+                                        <option value="Foster city">Milpitas</option>
+                                        <option value="San Jose">San Jose</option>
+                                        <option value="Santa Clara">Santa Clara</option>
+                                        <option value="Fremont">Fremont</option>
                                     </select>
                                 </div>
                             </div>
 
                             <div class="col-md-7">
                                 <div class="form-group">
-                                    <input class="btn btn-info btn-fill pull-left" onclick="add_sensor()" type="submit"
+                                    <input class="btn btn-info btn-fill pull-left" onclick="add_sensor()" type="button"
                                            value="Submit">
-                                    <input class="btn btn-danger btn-fill pull-right" type="submit" value="Cancel"/>
+                                    <input class="btn btn-danger btn-fill pull-right" onclick="cancel_add_sensor()" type="button" value="Cancel"/>
                                 </div>
                             </div>
                         </div>
@@ -247,8 +250,12 @@
                                     <label>Location</label>
                                     <!--input id="sensor-location" type="text" class="form-control" placeholder="Location" name="sensorLocation"-->
                                     <select id="edit-sensor-location" class="form-control" name="sensorLocation">
-                                        <option value="SFO">SFO</option>
-                                        <option value="Foster city">Foster city</option>
+                                        <option value="SFO">SF</option>
+                                        <option value="Foster city">Milpitas</option>
+                                        <option value="San Jose">San Jose</option>
+                                        <option value="Santa Clara">Santa Clara</option>
+                                        <option value="Fremont">Fremont</option>
+
                                     </select>
                                 </div>
                             </div>
@@ -258,7 +265,7 @@
                                     <input class="btn btn-info btn-fill pull-left" onclick="update_sensor()"
                                            type="submit"
                                            value="Submit">
-                                    <input class="btn btn-danger btn-fill pull-right" type="submit" value="Cancel"/>
+                                    <input class="btn btn-danger btn-fill pull-right" onclick="cancel_edit_sensor()" type="button" value="Cancel"/>
                                 </div>
                             </div>
                         </div>

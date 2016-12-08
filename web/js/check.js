@@ -20,7 +20,7 @@ function checkusers(userid,pswrd) {
     jQuery.ajax({
 
 
-        url:"http://localhost:8181/users",
+        url:"http://35.161.231.221:8080/sensor_service/users",
         type:"GET",
         contentType:'application/json',
         dataType:"json",
@@ -57,7 +57,7 @@ function checkvendors(userid,pswrd) {
     jQuery.ajax({
 
 
-        url:"http://localhost:8181/vendors",
+        url:"http://35.161.231.221:8080/sensor_service/vendors",
         type:"GET",
         contentType:'application/json',
         dataType:"json",

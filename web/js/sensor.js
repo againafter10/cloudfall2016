@@ -22,7 +22,7 @@ function Sensor(){
 
     jQuery.ajax({
 
-        url: "http://localhost:8181/sensors?vendor_email="+uid,
+        url: "http://35.161.231.221:8080/sensor_service/sensors?vendor_email="+uid,
         type: "GET",
         contentType: 'application/json',
         dataType:"json",
@@ -35,6 +35,8 @@ function Sensor(){
                 var $e=$('<button class="btn-sm btn-info btn-fill btn-warning btn-left " data-id="'+item.sensorId.toString()+'" data-name="'+item.sensorName+'" data-type="'+item.sensorType+'" data-status="'+item.status+'" data-location="'+item.sensorLocation+'"  toggle="modal" onclick="editSensor(event)" >Edit</button>');
                 var $s=$('<button class="btn-sm btn-info btn-fill btn-left" data-id="'+item.sensorId.toString()+'" toggle="modal" onclick="sensorGraph(event)">View Sensor Data</button>');
 
+
+
                 if(item.sensorStatus==1){
                     status = "on";
                 }
@@ -44,6 +46,8 @@ function Sensor(){
                 $("#sensortable").append($('<tr/>').append($('<td/>').append(item.sensorId)).append($('<td/>').append(item.sensorName)).append($('<td/>').append(item.sensorType)).append($('<td/>').append(status)).append($('<td/>').append(item.sensorLocation)).append($('<td/>').append($e).append('&nbsp;&nbsp;').append($s).append('&nbsp;&nbsp;').append($d)));
 
             });
+
+
 
             /*$('#sensortable tr').click(function () {
                 var row=document.getElementById("sensortable").getElementsByTagName("tr");
@@ -73,7 +77,7 @@ function add_sensor(){
     data[data.size]=uid;
 
     jQuery.ajax({
-        url: "http://localhost:8181/sensors",
+        url: "http://35.161.231.221:8080/sensor_service/sensors",
         type:"POST",
         contentType: 'application/json',
         data: JSON.stringify(data),
@@ -89,6 +93,15 @@ function sensorGraph(event){
     var url='http://localhost:8184/vendor-sensor-data.jsp?sensor='+encodeURIComponent(sensor_id);
     document.location.href=url;
 
+}
+
+function cancel_add_sensor(){
+
+    $("#add-sensors").modal('hide');
+}
+
+function cancel_edit_sensor(){
+    $("#edit-sensors").modal('hide');
 }
 
 function getSensorData(){
@@ -108,15 +121,38 @@ function getSensorData(){
 
 
     jQuery.ajax({
-        url: "http://localhost:8181/sensor_data/"+sensor_id,
-        type:"POST",
+        url: "http://35.161.231.221:8080/sensor_service/sensor_data/" + sensor_id,
+        type: "POST",
         contentType: 'application/json',
-        data: sensorDateToJSON(isoFromDate,isoToDate),
-        success: function(data) {
-            for (var i = 0; i<data.sensorDataPoints.length; i++) {
-                alert(data.sensorDataPoints[i].data);
+        data: sensorDateToJSON(isoFromDate, isoToDate),
+        success: function (data) {
+            var arr=[];
+            for (var i = 0; i < data.sensorDataPoints.length; i++) {
+                arr.push({x:data.sensorDataPoints[i].timestamp,y:parseFloat(data.sensorDataPoints[i].data)});
             }
+
+            var sensorType=data.sensorDataType;
+
                 //location.reload();
+                var chart = new CanvasJS.Chart("sensorDataChart",
+                    {
+                        zoomEnabled: true,
+
+                        title: {
+                            text: sensorType.toUpperCase()+" SENSOR DATA"
+                        },
+
+                        data: [
+                            {
+                                type: "line",
+                                xValueType: "dateTime",
+                                dataPoints: arr
+                            }
+                        ]
+                    });
+
+                chart.render();
+
         }
     });
 
@@ -133,7 +169,7 @@ function sensorDateToJSON(fromDate,toDate)
 function deleteSensor()
 {
     var a =event.target.dataset.id;
-    var delete_endpoint= "http://localhost:8181/sensors/"+a;
+    var delete_endpoint= "http://35.161.231.221:8080/sensor_service/sensors/"+a;
     jQuery.ajax({
         url: delete_endpoint,
         type:"DELETE",
@@ -197,7 +233,7 @@ function update_sensor(){
     });
 
     jQuery.ajax({
-        url: "http://localhost:8181/sensors/"+id,
+        url: "http://35.161.231.221:8080/sensor_service/sensors/"+id,
         type:"PUT",
         contentType: 'application/json',
         data: JSON.stringify(data),

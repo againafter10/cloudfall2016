@@ -16,12 +16,15 @@
     <link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
     <link href='http://fonts.googleapis.com/css?family=Roboto:400,700,300' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <script src="js/jquery-1.10.2.js" type="text/javascript"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/canvasjs/1.7.0/jquery.canvasjs.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/canvasjs/1.7.0/jquery.canvasjs.min.js"></script>
     <link rel="stylesheet" href="/resources/demos/style.css">
 
 
 
 </head>
-<body onload>
+<body>
 
 <div class="wrapper">
     <div class="sidebar" data-color="black">
@@ -37,12 +40,12 @@
             </div>
 
             <ul class="nav">
-                <li>
+                <!--<li>
                     <a href="vendor-dashboard.jsp">
                         <i class="fa fa-dashboard"></i>
                         <p>Dashboard</p>
                     </a>
-                </li>
+                </li>-->
                 <li class="active">
                     <a href="vendor-sensors.jsp">
                         <i class="fa fa-wifi"></i>
@@ -50,7 +53,7 @@
                     </a>
                 </li>
                 <li>
-                    <a href="vendor-charts.jsp">
+                    <a href="vendor-charts.html">
                         <i class="fa fa-area-chart"></i>
                         <p>Sensor Data</p>
                     </a>
@@ -118,39 +121,41 @@
                                                 <label> From date</label>
                                                 <input id="fromDate" type="text" class="form-control" placeholder="From">
                                             </div>
+                                        </div>
+                                        <div class="col-md-3">
                                             <div class="form-group" class="pull-right">
                                                 <label> To date</label>
                                                 <input id="toDate" type="text" class="form-control" placeholder="To">
                                             </div>
                                         </div>
-
                                     </div>
                                 </form>
-
                                 <div class="col-md-3">
                                     <button class="btn btn-info btn-fill pull-left" type="submit" onclick="getSensorData()" value="Submit"> Submit </button>
                                 </div>
-
                             </div>
-
                         </div>
                     </div>
-
+                </div>
+                <div class="row">
+                    <div class="col-md-3">
+                    </div>
+                    <div class="col-md-7">
+                        <div id="sensorDataChart" style="height: 250px; width: 100%;">
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
 
+        <canvas id="myChart1" height="300" width="500"></canvas>
         <footer class="footer">
             <div class="container-fluid">
 
             </div>
         </footer>
-
-
     </div>
 </div>
-
-
 </body>
 
 

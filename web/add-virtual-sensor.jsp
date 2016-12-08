@@ -24,12 +24,12 @@
                 </a>
             </div>
             <ul class="nav">
-                <li>
+                <!--<li>
                     <a href="user-dashboard.jsp">
                         <i class="fa fa-dashboard"></i>
                         <p>Dashboard</p>
                     </a>
-                </li>
+                </li>-->
                 <li class="active">
                     <a href="user-sensors.jsp">
                         <i class="fa fa-wifi" ></i>
@@ -195,7 +195,6 @@
 
 <script src="js/jquery-1.10.2.js" type="text/javascript"></script>
 <script src="js/bootstrap.min.js" type="text/javascript"></script>
-<script src="lodash.js"></script>
 <script src="js/chartist.min.js"></script>
 <script src="js/user-sensor.js"></script>
 

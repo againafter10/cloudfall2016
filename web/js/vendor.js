@@ -1,7 +1,7 @@
 function vendor(){
 
     jQuery.ajax({
-        url: "http://localhost:8181/vendors",
+        url: "http://35.161.231.221:8080/sensor_service/vendors",
         type: "GET",
         contentType: 'application/json',
         dataType:"json",
@@ -17,7 +17,7 @@ function vendor(){
                 var row=document.getElementById("vendor-table").getElementsByTagName("tr");
                 var vendor_email=row[this.rowIndex].getElementsByTagName('td')[2].innerHTML;
                 //var rowIndex=this.rowIndex;
-                var url='http://localhost:8182/admin-vendor-sensor.jsp?vendor='+encodeURIComponent(vendor_email);
+                var url='http://localhost:8184/admin-vendor-sensor.jsp?vendor='+encodeURIComponent(vendor_email);
                 document.location.href=url;
 
             });
@@ -38,7 +38,7 @@ function onLoadSensors(){
 
 
     jQuery.ajax({
-        url: "http://localhost:8181/sensors?vendor_email="+res,
+        url: "http://35.161.231.221:8080/sensor_service/sensors?vendor_email="+res,
         type: "GET",
         contentType: 'application/json',
         dataType:"json",

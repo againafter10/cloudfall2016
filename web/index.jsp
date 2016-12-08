@@ -21,7 +21,7 @@
 <!-- Button Mixin-->
 <!-- Pen Title-->
 <div class="pen-title">
-    <h1>Mobile Cloud Sensing Application</h1>
+    <h1>Mobile Sensor Cloud</h1>
 </div>
 <!-- Form Module-->
 <div class="module form-module">
@@ -33,7 +33,7 @@
         <form name="login" method="post" action="Login">
             Username<input type="text" name="userid" id="userid"/>
             Password<input type="password" name="pswrd" id="pswrd" />
-            Type<input type="text" name="typ" id="typ"/>
+            <!--Type<input type="text" name="typ" id="typ"/>-->
             <br/>
             <br>
             <input type="submit" name="Submit" value="Login"/>
@@ -50,22 +50,21 @@
             Username<input type="text" name="Username" id="Username"/>
             Password<input type="password" name="Password" id="pw"/>
             Email<input type="email" name="Email Address" id="email"/>
-            Plan<input type="tel" name="planid" id="plan"/>
             Type<input type="text" name="typ" id="typ"/>
 
-            <input type = "button" onclick = "regis(Username.value,email.value,pw.value,plan.value,typ.value)" value="Register"/>
+            <input type = "button" onclick = "regis(Username.value,email.value,pw.value,typ.value)" value="Register"/>
         </form>
         <script language="javascript">
-            function regis(Username,email,pw,plan,type){
+            function regis(Username,email,pw,type){
+
                 /*alert("This is name :"+vendorname);
                  alert("This is email :"+email);
                  alert("This is pw :"+pw);*/
-//        	$('#vendor-saved-dialog').modal('show');
-                alert(type)
+//        	$('#vendor-saved-dialog').modal('show')
                 jQuery.ajax({
                     type: "POST",
                     url: "http://localhost:8181/"+type,
-                    data: formToJSON(Username,email,pw,plan,type),
+                    data: formToJSON(Username,email,pw,1001,type),
                     contentType: 'application/json',
                     dataType:"json",
                     success: function(resultData) {
@@ -81,6 +80,7 @@
 
                 if (type === "users")
                 {
+                    alert(plan)
                     return JSON.stringify({
                         "userEmail":email,
                         "planId":plan,

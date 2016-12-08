@@ -21,16 +21,16 @@
                 </a>
             </div>
             <ul class="nav">
-                <li class="active">
+                <!--<li class="active">
                     <a href="user-dashboard.jsp">
                         <i class="fa fa-dashboard"></i>
                         <p>Dashboard</p>
                     </a>
-                </li>
+                </li>-->
                 <li>
                     <a href="user-sensors.jsp">
                         <i class="fa fa-wifi" ></i>
-                        <p>Your Sensors</p>
+                        <p>My Sensors</p>
                     </a>
                 </li>
                 <li>
